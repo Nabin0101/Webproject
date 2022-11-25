@@ -13,6 +13,8 @@
 #navbar{
     display: flex;
     align-items: center;
+    position: sticky;
+    top: 0px;
 }
 
 /* navigation bar: logo and image*/
@@ -21,8 +23,23 @@
 }
 
 #logo img{
-    height: 100px;
+    height: 70px;
     margin: 1px 1px;
+
+}
+
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
 
 }
 
@@ -52,7 +69,7 @@
 #navbar ul li{
     /*color: white;*/
     list-style: none;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 }
 #navbar ul li a{
     display: block;
@@ -65,44 +82,72 @@
     color: black;
     background-color: white;
 }
-/*serach bar*/
-#navbar input{
-    float: right;
-}
 
+/*serach bar*/
+.search-icon{
+    padding: 2px;
+    text-align: center;
+    display: flex;
+    width: 30px;
+    border: 0;
+    border-radius: 50%;
+}
+.search-icon input{
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 1px 3px;
+    color: #cac7ff;
+}
+.search-icon ::placeholder{
+    color: blue;
+    font-size: 20px;
+}
+.search-icon span {
+    border: 0;
+    border-radius: 50%;
+    padding-top: 8px;
+    padding-left: 10px;
+    cursor: pointer;
+}
 /*home section*/
 #home{
     display: flex;
     flex-direction: column;
     padding: 3px 200px;
-    height: 455px;
+    height: 640px;
     justify-content: center;
     align-items: center;
+    padding-bottom: 30px;
+   
 }
 #home::before{
     content: "";
-    background:url('/italian-cuisine-2378729_960_720.jpg')no-repeat center center/cover;
+    background:url('/home.jpg')no-repeat center center/cover;
     position: absolute;
-    height: 80%;
+    height: 100%;
     top: 0px;
     left: 0px;
     width: 100%;
     z-index: -1;
     opacity: 0.89;
+    padding-bottom: 20px;
 }
 #home h1{
-    color:white;
+    color: maroon;
     text-align: center;
     font-family:serif;
+    font-size: 60px;
 }
 #home p{
-    color:white;
+    color: maroon;
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 30px;
     font-family:serif;
 }
 /* services section */
 #services{
+    padding-top: 20px;
     margin: 34px;
     display: flex;
 
@@ -126,33 +171,68 @@
     font-family:serif;
 }
 
-/* clients section */
-#client-section{
-    position: relative;
-    height:344px;
-
-}
-#client-section::before{
-    content: "";
-    position: absolute;
-    background: url('../food\ service.jpg');
-    width: 100%;
-    height: 75%;
-    z-index: -1;
-    opacity: 0.2;
-
-}
-#clients{
+/* Customer Review section */
+.wrapper{
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
     display: flex;
-    justify-content:center;
-    align-items:center;
-}
-.client-item{
-    padding: 8px;
-}
-#clients img{
-    height:70px;
-}
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 30px;
+  }
+  .wrapper .box{
+    background: #fff;
+    width: calc(33% - 10px);
+    padding: 25px;
+    border-radius: 3px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+  }
+  .wrapper .box i.quote{
+    font-size: 20px;
+    color: #17a2b8;
+  }
+  .wrapper .box .content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+  }
+  .box .info .name{
+    font-weight: 600;
+    font-size: 17px;
+  }
+  .box .info .job{
+    font-size: 16px;
+    font-weight: 500;
+    color: #17a2b8;
+  }
+  .box .info .stars{
+    margin-top: 2px;
+  }
+  .box .info .stars i{
+    color: #17a2b8;
+  }
+  .box .content .image{
+    height: 75px;
+    width: 75px;
+    padding: 3px;
+    background: #17a2b8;
+    border-radius: 50%;
+  }
+  .content .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #fff;
+  }
+  .box:hover .content .image img{
+    border-color: #fff;
+  }
+
 
 /*utility class*/
 .h-primary{
@@ -165,7 +245,8 @@
     font-size: 2.6rem;
     padding: 16px;
 }
-.btn{
+        
+#home button{
     padding: 6px 20px;
     border: 2px solid white;
     background-color: brown;
@@ -197,7 +278,7 @@ ul{
     color: white;
     }
 .footer-col{
-   width: 25%;
+   width: 30%;
    padding: 0 15px;
 }
 .footer-col h4{
@@ -254,14 +335,57 @@ ul{
 
 /*responsive*/
 @media(max-width: 767px){
-  .footer-col{
+  .footer-col {
     width: 50%;
     margin-bottom: 30px;
 }
+#logo img{
+    height: 35px;
+    width: 35px;
+    margin: 1px 1px;
+}
+#navbar ul li a{
+    font-size: 16px;
+}
+#home{
+    height: 500px;
+}
+.wrapper .box{
+    width: calc(50% - 10px);
+    margin: 10px 0;
+}
 }
 @media(max-width: 574px){
-  .footer-col{
+  .footer-col {
     width: 100%;
 }
+#home{
+    height: 430px;
+    padding-bottom: 66px;
+}
+.h-primary{
+    font-size: 25px;
+}
+#home p{
+    font-size: 18px;
+}
+.h-secondary{
+    font-size: 25px;
 }
 
+#services{
+    display: block;
+}
+#services .box{
+    padding: 10px;
+    margin: 10px 6px;
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+.wrapper .box{
+    width: 100%;
+  }
+#home button{
+    padding: 0.01px 45px;
+}
+}
