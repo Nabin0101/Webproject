@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <title>Register Form</title>
+</head>
+<body>
+    <div class="container">
+        <form  name="form" action="login.html" method="get" class="login-email" onsubmit="return(validate());">
+            <p class="login-text"> Register</p>
+            <div class="login-group">
+                <input type="text" placeholder="Username" name="username"  >
+                <p id="useerr" class="error"></p>
+            </div>
+            <div class="login-group">
+                <input type="text" placeholder="Email" name="email" >
+                <p id="emailerr" class="error"></p>
+            </div>
+            <div class="login-group">
+                <input type="password" placeholder="Password" name="password" >
+                <p id="paserr" class="error"></p>
+            </div>
+            <div class="login-group">
+                <input type="password" placeholder="Confirm Password"  name="cpassword">
+                <p id="cerr" class="error"></p>
+            </div>
+            <div class="login-group">
+                <button name="submit" class="btn">Register</button>
+            </div>
+            <p class="login-register-text">Already have an account? <a href="login.html">Login</a></p>
+        </form>
+    </div>
+
+    <script>
+        function validate()
+        {
+            var username= document.form.username.value;
+            var password= document.form.password.value;
+            var email = document.form.email.value;
+            var cpassword= document.form.cpassword.value;
+            var regexp= /\S+@\S+\.\S+/;
+            /*For Username*/
+            if(username==null || username=="")
+            {
+                document.getElementById("useerr").innerHTML="Please enter Username";
+                return false;
+            }
+            else{
+                document.getElementById("useerr").innerHTML="";
+            }
+
+            /*For Email*/
+            if(email==null || email=="")
+            {
+                document.getElementById("emailerr").innerHTML="Please enter Email";
+                return false;
+            }
+            else if(regexp.test(String(email).toLowerCase())==false)
+            {
+                document.getElementById("emailerr").innerHTML="Please enter valid form of email";
+                return false;
+            }
+            else{
+                document.getElementById("emailerr").innerHTML="";
+            }
+
+            /*For  Password*/
+            if(password==null || password=="")
+            {
+                document.getElementById("paserr").innerHTML="Please enter your password";
+                return false;
+            }
+
+            else if(password.length<8)
+            {
+                document.getElementById("paserr").innerHTML="Length should be of size 8 or more than 8";
+                return false;
+            }
+            else{
+                document.getElementById("paserr").innerHTML="";
+            }
+
+            /*For Confirm Password*/
+            if(cpassword==null || cpassword=="")
+            {
+                document.getElementById("cerr").innerHTML="Please enter above password again";
+                return false;
+            }
+            else if(cpassword!=password)
+            {
+                document.getElementById("cerr").innerHTML="Please enter the same password";
+                return false;
+            }
+            else{
+                document.getElementById("cerr").innerHTML="";
+            }
+
+        }
+    </script>
+</body>
+</html>

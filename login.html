@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <title>Login  Form</title>
+</head>
+<body>
+    <div class="container">
+        <form  name ="form" action="Order.html" method="get" class="login-email" onsubmit="return(validateform());">
+            <p class="login-text"> Login</p>
+            <div class="login-group">
+                <input type="text" placeholder="Username"  name="username" >
+                <p id="usererr"class="error"></p>
+            </div>
+            <div class="login-group">
+                <input type="password" placeholder="Password" name="password" >
+                <p id="passerr"class="error"></p>
+            </div>
+            <div class="login-group">
+                <button  name="submit" class="btn">Login</button>
+            </div>
+            <p class="login-register-text">Don't have an account? <a href="register.html">Register Here</a></p>
+        </form>
+    </div>
+
+    <script>
+                
+                function validateform()
+        {
+            var username= document.form.username.value;
+            var password= document.form.password.value;
+            /* For Username*/
+            if(username==null || username=="")
+            {
+                document.getElementById("usererr").innerHTML="Please enter Username";
+                return false;
+            }
+            else{
+                document.getElementById("usererr").innerHTML="";
+            }
+
+            /*For Password*/
+             if(password==null ||password=="")
+            {
+                document.getElementById("passerr").innerHTML="Please enter your password";
+                return false;
+            }
+
+            else if(password.length<8)
+            {
+                document.getElementById("passerr").innerHTML="Length should be of size 8 or more than 8";
+                return false;
+            }
+            else{
+                document.getElementById("passerr").innerHTML="";
+            }
+        }
+
+    </script>
+    </body>
+</html>
